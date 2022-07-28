@@ -1,10 +1,8 @@
 package currencyConverter;
 
-import com.sun.source.tree.BreakTree;
-import menu.Menu;
+import measure.Currency;
 
-import javax.swing.*;
-import java.lang.reflect.Array;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,12 +11,12 @@ public class CurrencyList {
     public CurrencyList( ) {
         List <Currency> currencyList = new ArrayList<>();
         this.currencyList = currencyList;
-        Currency real = new Currency("Real","R$", 1);
-        Currency dolarAmericano = new Currency("Dólar Comercial", "$", 0.182);
-        Currency euro = new Currency("Euro","€", 0.179);
-        Currency libra = new Currency("Libra Esterlina", "£", 0.152);
-        Currency iene = new Currency("Iene Japonês", "¥", 25.05);
-        Currency yuan = new Currency("Yuan Chinês", "¥", 1.23);
+        Currency real = new Currency("Real","R$", BigDecimal.valueOf(5.202));
+        Currency dolarAmericano = new Currency("Dólar Comercial", "$",  BigDecimal.valueOf(1));
+        Currency euro = new Currency("Euro","€",  BigDecimal.valueOf(0.9788));
+        Currency libra = new Currency("Libra Esterlina", "£",  BigDecimal.valueOf(0.83156));
+        Currency iene = new Currency("Iene Japonês", "¥",  BigDecimal.valueOf(136.491));
+        Currency yuan = new Currency("Yuan Chinês", "¥",  BigDecimal.valueOf(6.75352));
 
         currencyList.add(real);
         currencyList.add(dolarAmericano);
