@@ -1,13 +1,11 @@
 package view;
 
 import main.Menu;
-import view.img.FinishMessage;
 
 import javax.swing.*;
 
 public class ViewContinueMessage {
-    public ViewContinueMessage(){
-
+    public ViewContinueMessage() throws Exception {
         Object[] options = { "Confirmar", "Cancelar" };
         Object optionSelected = JOptionPane.showOptionDialog(null, "Deseja retornar ao menu principal?", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 

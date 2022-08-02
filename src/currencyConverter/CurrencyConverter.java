@@ -1,18 +1,18 @@
 package currencyConverter;
 
-import convert.Conversion;
+import conversion.Conversion;
 import measure.Currency;
 import view.ViewContinueMessage;
 import view.ViewMenuDropDown;
 import view.ViewResultMessage;
-import view.ViewSetValueInput;
+import main.UserSetValueInput;
 
 import java.math.BigDecimal;
 
 
 public class CurrencyConverter {
-    public CurrencyConverter() {
-        try{
+    public CurrencyConverter() throws Exception{
+
             int originIndex = originCurrencySelection();
             int destinationIndex = outputCurrencySelection();
             Currency originCurrency = listOfCurrencies.getCurrencyPerIndex(originIndex);
@@ -21,7 +21,9 @@ public class CurrencyConverter {
 
             BigDecimal amount = setAmount();
 
-            Conversion conversion = new Conversion(amount, originCurrency.getValue(), destinationCurrency.getValue());
+            Conversion conversion = new Conversion();
+            conversion.convertMonetaryValues(amount, originCurrency.getValue(), destinationCurrency.getValue());
+            Conversion conversion1 = new Conversion();
 
             //DecimalFormat decimalFormat = new DecimalFormat("##.##");
             //String finalConversionMessage=destinationCurrency.getSymbol()+" "+decimalFormat.format(conversion.getFinalValue());
@@ -29,9 +31,7 @@ public class CurrencyConverter {
             String finalConversionMessage=destinationCurrency.getSymbol()+" "+String.format("%.2f",conversion.getFinalValue()).replace(".",",");
 
             ViewResultMessage resultCurrencyConversion = new ViewResultMessage(finalConversionMessage);
-        }catch (Exception ex){
             new ViewContinueMessage();
-        }
     }
 
     private CurrencyList listOfCurrencies = new CurrencyList();
@@ -85,8 +85,9 @@ public class CurrencyConverter {
         return outputCurrencyIndex;
     }
     private BigDecimal setAmount(){
-        ViewSetValueInput viewSetValueInput = new ViewSetValueInput("/currencyConverter/img/moedaConvertida.png");
-        BigDecimal amountInput = BigDecimal.valueOf(viewSetValueInput.getValue());
+        UserSetValueInput userSetValueInput = new UserSetValueInput();
+        userSetValueInput.showViewSetValueNonNegativeZero("/currencyConverter/img/moedaConvertida.png");
+        BigDecimal amountInput = BigDecimal.valueOf(userSetValueInput.getValue());
         return  amountInput;
     }
 

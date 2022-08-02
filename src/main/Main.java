@@ -1,6 +1,6 @@
 package main;
 
-import view.img.FinishMessage;
+import view.FinishMessage;
 
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
@@ -15,7 +15,7 @@ public class Main {
             menu.start();
         }
         catch (Exception ex){
-            System.out.println("CAIU NA MAIN");
+            //System.out.println("CAIU NA MAIN");
             new FinishMessage();
         }
     }

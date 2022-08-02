@@ -2,20 +2,29 @@ package main;
 
 import currencyConverter.CurrencyConverter;
 import temperatureConverter.TemperatureConverter;
+import view.ViewContinueMessage;
 import view.ViewMenuDropDown;
-import view.img.FinishMessage;
+import view.FinishMessage;
 
 public class Menu {
-    public void start(){
+    public void start() throws Exception {
         String[] options = {"Conversor de Moeda", "Conversor de Temperatura"};
         ViewMenuDropDown MainMenu = new ViewMenuDropDown(options, "/view/img/menu.png","Escolha um conversor","Menu");
         switch (MainMenu.getInputString()){
             case "Conversor de Moeda":
-                CurrencyConverter currencyConverter = new CurrencyConverter();
+                try{
+                    CurrencyConverter currencyConverter = new CurrencyConverter();
+                }catch (Exception ex){
+                    new ViewContinueMessage();
+                }
                 break;
             case "Conversor de Temperatura":
-                TemperatureConverter temperatureConverter = new TemperatureConverter();
-                System.out.println("Conversor de temperatura");
+                try{
+                    TemperatureConverter temperatureConverter = new TemperatureConverter();
+                }catch (Exception ex){
+                    new  ViewContinueMessage();
+                }
+
                 break;
             default: new FinishMessage();
         }
