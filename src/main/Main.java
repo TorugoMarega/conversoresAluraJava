@@ -15,6 +15,7 @@ public class Main {
             menu.start();
         }
         catch (Exception ex){
+            ex.printStackTrace();
             new FinishMessage();
         }
     }

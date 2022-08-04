@@ -22,6 +22,7 @@ public class Menu {
                 try{
                     new TemperatureConverter();
                 }catch (Exception ex){
+                    ex.printStackTrace();
                     new  ViewContinueMessage();
                 }
 
