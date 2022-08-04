@@ -13,14 +13,14 @@ public class Menu {
         switch (MainMenu.getInputString()){
             case "Conversor de Moeda":
                 try{
-                    CurrencyConverter currencyConverter = new CurrencyConverter();
+                    new CurrencyConverter();
                 }catch (Exception ex){
                     new ViewContinueMessage();
                 }
                 break;
             case "Conversor de Temperatura":
                 try{
-                    TemperatureConverter temperatureConverter = new TemperatureConverter();
+                    new TemperatureConverter();
                 }catch (Exception ex){
                     new  ViewContinueMessage();
                 }

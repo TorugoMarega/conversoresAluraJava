@@ -2,6 +2,7 @@ package main;
 
 import currencyConverter.CurrencyConverter;
 import view.ViewInvalidInput;
+import view.ViewUserSetValueInput;
 
 import javax.swing.*;
 
@@ -12,9 +13,9 @@ public class UserSetValueInput {
 
     public void showViewSetValueNonNegativeZero(String iconPath) {
         try {
-            Icon icon = new ImageIcon(CurrencyConverter.class.getResource(iconPath));
 
-            Double amountInputDouble = Double.parseDouble(JOptionPane.showInputDialog(null,"Valor a ser convertido: ","Conversão", JOptionPane.PLAIN_MESSAGE,icon,  null, "").toString().replace("," , "."));
+            ViewUserSetValueInput userSetValueInput = new ViewUserSetValueInput(iconPath);
+            Double amountInputDouble = Double.parseDouble(userSetValueInput.getUserInputValue());
             if (amountInputDouble <= 0){
                 throw  new IllegalArgumentException();
             }
@@ -23,17 +24,15 @@ public class UserSetValueInput {
             }
         } catch (IllegalArgumentException illegalArgumentException){
             illegalArgumentException.printStackTrace();
-
-            ViewInvalidInput viewInvalidInput = new ViewInvalidInput();
+            new ViewInvalidInput();
             showViewSetValueNonNegativeZero(iconPath);
         }
     }
 
     public void showViewSetValueNegativeZero(String iconPath){
         try {
-            Icon icon = new ImageIcon(CurrencyConverter.class.getResource(iconPath));
-
-            Double amountInputDouble = Double.parseDouble(JOptionPane.showInputDialog(null,"Valor a ser convertido: ","Conversão", JOptionPane.PLAIN_MESSAGE,icon,  null, "").toString().replace("," , "."));
+            ViewUserSetValueInput userSetValueInput = new ViewUserSetValueInput(iconPath);
+            Double amountInputDouble = Double.parseDouble(userSetValueInput.getUserInputValue());
             if (amountInputDouble == null){
                 throw  new IllegalArgumentException();
             }

@@ -21,6 +21,7 @@ public class TemperatureList {
         temperatureList.add(celcius);
         temperatureList.add(kelvin);
     }
+
     //RETORNA A REFERÊNCIA PARA A LISTA DE MOEDAS
     public List getTemperatureListReference(){
         return this.temperatureList;
@@ -32,7 +33,6 @@ public class TemperatureList {
         String [] allTemperatures = new String[temperatureList.size()];
         for(int i=0; i < temperatureList.size(); i++){
             allTemperatures[i] = temperatureList.get(i).getName();
-            //System.out.println(allCurrencies[i]);
         }
         return allTemperatures;
     }
@@ -41,7 +41,6 @@ public class TemperatureList {
         String [] allTemperatures = new String[temperatureList.size()];
         for(int i=0; i < temperatureList.size(); i++){
             allTemperatures[i] = temperatureList.get(i).getName();
-            //System.out.println(allCurrencies[i]);
         }
         return allTemperatures[index];
     }

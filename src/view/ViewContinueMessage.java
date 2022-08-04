@@ -13,7 +13,7 @@ public class ViewContinueMessage {
             Menu menu = new Menu();
             menu.start();
         }else{
-            FinishMessage finishMessage = new FinishMessage();
+           new FinishMessage();
         }
     }
 }

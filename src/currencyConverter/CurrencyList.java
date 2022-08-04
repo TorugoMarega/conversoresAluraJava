@@ -11,10 +11,10 @@ public class CurrencyList {
     public CurrencyList( ) {
         List <Currency> currencyList = new ArrayList<>();
         this.currencyList = currencyList;
-        Currency real = new Currency("Real","R$", BigDecimal.valueOf(5.202));
+        Currency real = new Currency("Real","R$", BigDecimal.valueOf(5.211));
         Currency dolarAmericano = new Currency("Dólar Comercial", "$",  BigDecimal.valueOf(1));
-        Currency euro = new Currency("Euro","€",  BigDecimal.valueOf(0.9788));
-        Currency libra = new Currency("Libra Esterlina", "£",  BigDecimal.valueOf(0.83156));
+        Currency euro = new Currency("Euro","€",  BigDecimal.valueOf(0.976));
+        Currency libra = new Currency("Libra Esterlina", "£",  BigDecimal.valueOf(0.822));
         Currency iene = new Currency("Iene Japonês", "¥",  BigDecimal.valueOf(136.491));
         Currency yuan = new Currency("Yuan Chinês", "¥",  BigDecimal.valueOf(6.75352));
 

@@ -15,7 +15,6 @@ public class Main {
             menu.start();
         }
         catch (Exception ex){
-            //System.out.println("CAIU NA MAIN");
             new FinishMessage();
         }
     }

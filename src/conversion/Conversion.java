@@ -1,9 +1,9 @@
 package conversion;
 
 import temperatureConverter.Scales;
-import view.ViewInvalidInput;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Conversion {
     private BigDecimal finalValue;
@@ -12,8 +12,8 @@ public class Conversion {
     public void convertMonetaryValues(BigDecimal inputValue, BigDecimal baseValueInput, BigDecimal baseValueOutput){
         System.out.println("VALOR DE ENTRADA: "+ inputValue+ "\nVALOR BASE DA ENTRADA "+baseValueInput);
         System.out.println("VALOR BASE OUTPUT: "+baseValueOutput);
-        BigDecimal convertedValue =  BigDecimal.valueOf(inputValue.doubleValue()/baseValueInput.doubleValue());
-        //return inputValue.divide(baseValueInput);
+        //BigDecimal convertedValue =  BigDecimal.valueOf(inputValue.doubleValue()/baseValueInput.doubleValue());
+        BigDecimal convertedValue =  inputValue.divide(baseValueInput, 2, RoundingMode.CEILING);
         this.finalValue =  convertedValue.multiply(baseValueOutput);
     }
 
@@ -41,27 +41,21 @@ public class Conversion {
         Scales scalesConversion = new Scales();
         Double convertedValue;
         if (inputScaleIndex == 0 && outputScaleIndex == 1 || inputScaleIndex == 1 && outputScaleIndex == 0){
-
             convertedValue = scalesConversion.celciusFareinheint(inputValue, inputScaleIndex);
         }else if(inputScaleIndex == 1 && outputScaleIndex == 2 || inputScaleIndex == 2 && outputScaleIndex == 1){
-            System.out.println("CELSIUS PARA kelvin OU kelvin PRA CELSIUS");
             convertedValue = scalesConversion.celciusKelvin(inputValue, inputScaleIndex);
         }else{
             convertedValue = scalesConversion.fareinheintKelvin(inputValue, inputScaleIndex);
-            System.out.println("kelvin PARA FAREINHEINT OU FAREINHEINT PRA kelvin");
         }
         this.finalValue = BigDecimal.valueOf(convertedValue) ;
     }
     public Double getFinalValue(){
-
         System.out.println("VALOR FINAL: " + String.format("%.2f", this.finalValue.doubleValue()));
         return this.finalValue.doubleValue();
-
         /*
         System.out.println("VALOR FINAL BIG DECIMAL: "+ this.finalValue);
         return this.finalValue;
         */
-
     }
 
 

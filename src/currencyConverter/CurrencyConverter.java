@@ -18,18 +18,14 @@ public class CurrencyConverter {
             Currency originCurrency = listOfCurrencies.getCurrencyPerIndex(originIndex);
             Currency destinationCurrency = listOfCurrencies.getCurrencyPerIndex(destinationIndex);
 
-
             BigDecimal amount = setAmount();
 
             Conversion conversion = new Conversion();
             conversion.convertMonetaryValues(amount, originCurrency.getValue(), destinationCurrency.getValue());
-            Conversion conversion1 = new Conversion();
-
             //DecimalFormat decimalFormat = new DecimalFormat("##.##");
             //String finalConversionMessage=destinationCurrency.getSymbol()+" "+decimalFormat.format(conversion.getFinalValue());
 
             String finalConversionMessage=destinationCurrency.getSymbol()+" "+String.format("%.2f",conversion.getFinalValue()).replace(".",",");
-
             ViewResultMessage resultCurrencyConversion = new ViewResultMessage(finalConversionMessage);
             new ViewContinueMessage();
     }
@@ -44,7 +40,6 @@ public class CurrencyConverter {
         ViewMenuDropDown currencyInputMenu = new ViewMenuDropDown(listOfCurrencies.getCurrencyList(), "/currencyConverter/img/moedaOrigem.png","Escolha a moeda de origem:","Moeda de Origem" );
         String inputCurrency = currencyInputMenu.getInputString();
         int originCurrencyIndex=switchCurrency(inputCurrency);
-        //System.out.println("ORIGIN VALUE" + originCurrencyIndex);
         return originCurrencyIndex;
     }
 
@@ -81,7 +76,6 @@ public class CurrencyConverter {
         ViewMenuDropDown currencyOutputMenu = new ViewMenuDropDown(listOfCurrencies.getCurrencyList(), "/currencyConverter/img/moedaDestino.png","Escolha a moeda de destino:","Moeda de Destino" );
         String outputCurrency = currencyOutputMenu.getInputString();
         int outputCurrencyIndex=switchCurrency(outputCurrency);
-        //System.out.println("DESTINATION VALUE" + outputCurrencyIndex);
         return outputCurrencyIndex;
     }
     private BigDecimal setAmount(){
@@ -90,7 +84,5 @@ public class CurrencyConverter {
         BigDecimal amountInput = BigDecimal.valueOf(userSetValueInput.getValue());
         return  amountInput;
     }
-
-
 
 }
