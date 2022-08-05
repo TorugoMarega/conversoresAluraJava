@@ -1,11 +1,11 @@
 package currencyConverter;
 
 import conversion.Conversion;
+import mainMenu.UserSetValueInput;
 import measure.Currency;
 import view.ViewContinueMessage;
 import view.ViewMenuDropDown;
 import view.ViewResultMessage;
-import main.UserSetValueInput;
 
 import java.math.BigDecimal;
 
@@ -37,7 +37,7 @@ public class CurrencyConverter {
     }
 
     private int originCurrencySelection(){
-        ViewMenuDropDown currencyInputMenu = new ViewMenuDropDown(listOfCurrencies.getCurrencyList(), "/currencyConverter/img/moedaOrigem.png","Escolha a moeda de origem:","Moeda de Origem" );
+        ViewMenuDropDown currencyInputMenu = new ViewMenuDropDown(listOfCurrencies.getCurrencyList(), "/currency/moedaOrigem.png","Escolha a moeda de origem:","Moeda de Origem" );
         String inputCurrency = currencyInputMenu.getInputString();
         int originCurrencyIndex=switchCurrency(inputCurrency);
         return originCurrencyIndex;
@@ -73,14 +73,14 @@ public class CurrencyConverter {
         return originCurrencyIndex;
     }
     private int outputCurrencySelection(){
-        ViewMenuDropDown currencyOutputMenu = new ViewMenuDropDown(listOfCurrencies.getCurrencyList(), "/currencyConverter/img/moedaDestino.png","Escolha a moeda de destino:","Moeda de Destino" );
+        ViewMenuDropDown currencyOutputMenu = new ViewMenuDropDown(listOfCurrencies.getCurrencyList(), "/currency/moedaDestino.png","Escolha a moeda de destino:","Moeda de Destino" );
         String outputCurrency = currencyOutputMenu.getInputString();
         int outputCurrencyIndex=switchCurrency(outputCurrency);
         return outputCurrencyIndex;
     }
     private BigDecimal setAmount(){
         UserSetValueInput userSetValueInput = new UserSetValueInput();
-        userSetValueInput.showViewSetValueNonNegativeZero("/currencyConverter/img/moedaConvertida.png");
+        userSetValueInput.showViewSetValueNonNegativeZero("/currency/moedaConvertida.png");
         BigDecimal amountInput = BigDecimal.valueOf(userSetValueInput.getValue());
         return  amountInput;
     }

@@ -1,10 +1,7 @@
-package main;
+package mainMenu;
 
-import currencyConverter.CurrencyConverter;
 import view.ViewInvalidInput;
 import view.ViewUserSetValueInput;
-
-import javax.swing.*;
 
 
 

@@ -1,6 +1,7 @@
 package view;
 
-import main.Menu;
+
+import mainMenu.Menu;
 
 import javax.swing.*;
 

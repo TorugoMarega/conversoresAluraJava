@@ -1,7 +1,5 @@
 package measure;
 
-import measure.Measure;
-
 import java.math.BigDecimal;
 
 public class Currency extends Measure {

@@ -1,4 +1,4 @@
-package main;
+package mainMenu;
 
 import view.FinishMessage;
 

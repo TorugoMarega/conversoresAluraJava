@@ -1,9 +1,11 @@
 package temperatureConverter;
 
 import conversion.Conversion;
-import main.UserSetValueInput;
+import mainMenu.UserSetValueInput;
 import measure.Temperature;
-import view.*;
+import view.ViewContinueMessage;
+import view.ViewMenuDropDown;
+import view.ViewResultMessage;
 
 import java.math.BigDecimal;
 
@@ -33,7 +35,7 @@ public class TemperatureConverter {
     }
 
     private int originTemperatureSelection(){
-        ViewMenuDropDown temperatureInputMenu = new ViewMenuDropDown(listOfTemperatures.getTemperatureList(), "/temperatureConverter/img/inputTemperature.png","Escolha a escala da temperatura:","Temperatura de Entrada" );
+        ViewMenuDropDown temperatureInputMenu = new ViewMenuDropDown(listOfTemperatures.getTemperatureList(), "/temperature/inputTemperature.png","Escolha a escala da temperatura:","Temperatura de Entrada" );
         String inputTemperature = temperatureInputMenu.getInputString();
         int originTemperatureIndex=switchTemperature(inputTemperature);
 
@@ -58,7 +60,7 @@ public class TemperatureConverter {
         return originTemperatureIndex;
     }
     private int outputTemperatureSelection(){
-        ViewMenuDropDown temperatureOutputMenu = new ViewMenuDropDown(listOfTemperatures.getTemperatureList(), "/temperatureConverter/img/outputTemperature.png","Escolha a escala de destino:","Temperatura de Saída" );
+        ViewMenuDropDown temperatureOutputMenu = new ViewMenuDropDown(listOfTemperatures.getTemperatureList(), "/temperature/outputTemperature.png","Escolha a escala de destino:","Temperatura de Saída" );
         String outputTemperature = temperatureOutputMenu.getInputString();
         int outputTemperatureIndex=switchTemperature(outputTemperature);
         //System.out.println("outputemperatureindex: " +outputTemperatureIndex);
@@ -66,7 +68,7 @@ public class TemperatureConverter {
     }
     private BigDecimal setAmount(){
         UserSetValueInput viewSetValueInputTemperature = new UserSetValueInput();
-        viewSetValueInputTemperature.showViewSetValueNegativeZero("/temperatureConverter/img/amountTemperature.png");
+        viewSetValueInputTemperature.showViewSetValueNegativeZero("/temperature/amountTemperature.png");
 
         BigDecimal amountInput = BigDecimal.valueOf(viewSetValueInputTemperature.getValue());
         return  amountInput;
