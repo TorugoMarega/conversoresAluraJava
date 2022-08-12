@@ -1,5 +1,6 @@
 package mainMenu;
-
+import controller.ConnectionFactory;
+import data.CreateDatabase;
 import view.FinishMessage;
 
 import javax.swing.*;
@@ -10,12 +11,15 @@ public class Main {
     public static void main(String[] args) {
         UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(
                 "Arial", Font.BOLD, 18)));
-        try{
+        try {
+            ConnectionFactory connectionFactory = new ConnectionFactory();
+            CreateDatabase database = new CreateDatabase(connectionFactory);
+            database.createTableCurrency();
+
             Menu menu = new Menu();
             menu.start();
-        }
-        catch (Exception ex){
-            ex.printStackTrace();
+        } catch (Exception ex) {
+            //ex.printStackTrace();
             new FinishMessage();
         }
     }

@@ -2,7 +2,7 @@ package temperatureConverter;
 
 import conversion.Conversion;
 import mainMenu.UserSetValueInput;
-import measure.Temperature;
+import model.Temperature;
 import view.ViewContinueMessage;
 import view.ViewMenuDropDown;
 import view.ViewResultMessage;
@@ -21,8 +21,8 @@ public class TemperatureConverter {
 
         //DecimalFormat decimalFormat = new DecimalFormat("##.##");
         //String finalConversionMessage=destinationCurrency.getSymbol()+" "+decimalFormat.format(conversion.getFinalValue());
-        conversion.convertTemperatureValues(amount.doubleValue(),originIndex, destinationIndex);
-        String finalConversionMessage=destinationTemperature.getSymbol()+" "+String.format("%.2f",conversion.getFinalValue()).replace(".",",");
+        conversion.convertTemperatureValues(amount.doubleValue(), originIndex, destinationIndex);
+        String finalConversionMessage = destinationTemperature.getSymbol() + " " + String.format("%.2f", conversion.getFinalValue()).replace(".", ",");
 
         ViewResultMessage resultTemperatureConversion = new ViewResultMessage(finalConversionMessage);
         new ViewContinueMessage();
@@ -30,21 +30,21 @@ public class TemperatureConverter {
 
     private TemperatureList listOfTemperatures = new TemperatureList();
 
-    private TemperatureList getListOfTemperatures(){
+    private TemperatureList getListOfTemperatures() {
         return listOfTemperatures;
     }
 
-    private int originTemperatureSelection(){
-        ViewMenuDropDown temperatureInputMenu = new ViewMenuDropDown(listOfTemperatures.getTemperatureList(), "/temperature/inputTemperature.png","Escolha a escala da temperatura:","Temperatura de Entrada" );
+    private int originTemperatureSelection() {
+        ViewMenuDropDown temperatureInputMenu = new ViewMenuDropDown(listOfTemperatures.getTemperatureList(), "/temperature/inputTemperature.png", "Escolha a escala da temperatura:", "Temperatura de Entrada");
         String inputTemperature = temperatureInputMenu.getInputString();
-        int originTemperatureIndex=switchTemperature(inputTemperature);
+        int originTemperatureIndex = switchTemperature(inputTemperature);
 
         return originTemperatureIndex;
     }
 
-    private int switchTemperature(String inputTemperature){
-        int originTemperatureIndex=0;
-        switch (inputTemperature){
+    private int switchTemperature(String inputTemperature) {
+        int originTemperatureIndex = 0;
+        switch (inputTemperature) {
             case "Fareinheint":
                 originTemperatureIndex = 0;
                 break;
@@ -59,18 +59,20 @@ public class TemperatureConverter {
         }
         return originTemperatureIndex;
     }
-    private int outputTemperatureSelection(){
-        ViewMenuDropDown temperatureOutputMenu = new ViewMenuDropDown(listOfTemperatures.getTemperatureList(), "/temperature/outputTemperature.png","Escolha a escala de destino:","Temperatura de Saída" );
+
+    private int outputTemperatureSelection() {
+        ViewMenuDropDown temperatureOutputMenu = new ViewMenuDropDown(listOfTemperatures.getTemperatureList(), "/temperature/outputTemperature.png", "Escolha a escala de destino:", "Temperatura de Saída");
         String outputTemperature = temperatureOutputMenu.getInputString();
-        int outputTemperatureIndex=switchTemperature(outputTemperature);
+        int outputTemperatureIndex = switchTemperature(outputTemperature);
         //System.out.println("outputemperatureindex: " +outputTemperatureIndex);
         return outputTemperatureIndex;
     }
-    private BigDecimal setAmount(){
+
+    private BigDecimal setAmount() {
         UserSetValueInput viewSetValueInputTemperature = new UserSetValueInput();
         viewSetValueInputTemperature.showViewSetValueNegativeZero("/temperature/amountTemperature.png");
 
         BigDecimal amountInput = BigDecimal.valueOf(viewSetValueInputTemperature.getValue());
-        return  amountInput;
+        return amountInput;
     }
 }

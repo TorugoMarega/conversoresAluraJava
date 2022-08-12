@@ -1,17 +1,29 @@
-package measure;
+package model;
 
 
 import java.math.BigDecimal;
 
 abstract class Measure {
+
+    private int rowid;
     private String name;
     private String symbol;
     private BigDecimal value;
 
-    public Measure (String name, String symbol, BigDecimal value) {
+    public Measure(){}
+    public Measure(int rowid, String name, String symbol, BigDecimal value) {
+        this.rowid = rowid;
         this.name = name;
         this.symbol = symbol;
-        this.value =value;
+        this.value = value;
+    }
+
+    public int getRowid() {
+        return rowid;
+    }
+
+    public void setRowid(int rowid) {
+        this.rowid = rowid;
     }
 
     public String getName() {
