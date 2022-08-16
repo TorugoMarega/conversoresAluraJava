@@ -59,7 +59,7 @@ public class CurrencyDAO {
         stmt = connectionFactory.createPreparedStatement(query);
 
         try{
-            stmt.setInt(1,newCurrency.getRowid());
+            stmt.setInt(1,newCurrency.getId());
             stmt.setString(2,newCurrency.getName());
             stmt.setString(3, newCurrency.getSymbol());
             stmt.setDouble(4, newCurrency.getValue().doubleValue());

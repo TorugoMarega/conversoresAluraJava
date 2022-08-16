@@ -1,7 +1,7 @@
 package mainMenu;
 import controller.ConnectionFactory;
 import data.CreateDatabase;
-import view.FinishMessage;
+import view.ViewFinishMessage;
 
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
@@ -19,8 +19,7 @@ public class Main {
             Menu menu = new Menu();
             menu.start();
         } catch (Exception ex) {
-            //ex.printStackTrace();
-            new FinishMessage();
+            new ViewFinishMessage();
         }
     }
 }

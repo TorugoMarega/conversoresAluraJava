@@ -3,7 +3,7 @@ package mainMenu;
 import currencyConverter.CurrencyConverter;
 import temperatureConverter.TemperatureConverter;
 import timeConverter.TimeConverter;
-import view.FinishMessage;
+import view.ViewFinishMessage;
 import view.ViewContinueMessage;
 import view.ViewMenuDropDown;
 
@@ -23,19 +23,20 @@ public class Menu {
                 try {
                     new TemperatureConverter();
                 } catch (Exception ex) {
-                    ex.printStackTrace();
+                    //ex.printStackTrace();
                     new ViewContinueMessage();
                 }
+                break;
             case "Conversor de Tempo":
                 try {
                     new TimeConverter();
                 } catch (Exception ex) {
-                    ex.printStackTrace();
+                    //ex.printStackTrace();
                     new ViewContinueMessage();
                 }
                 break;
             default:
-                new FinishMessage();
+                new ViewFinishMessage();
         }
     }
 }

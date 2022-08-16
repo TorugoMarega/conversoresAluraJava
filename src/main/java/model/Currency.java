@@ -7,7 +7,7 @@ public class Currency extends Measure {
     public Currency(){
      super();
     }
-    public Currency(Integer id,String name, String sigla, BigDecimal value) {
-        super(id,name, sigla, value);
+    public Currency(int id,String name, String symbol, BigDecimal value) {
+        super(id,name, symbol, value);
     }
 }

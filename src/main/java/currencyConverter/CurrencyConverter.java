@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 
 
 public class CurrencyConverter {
+    private CurrencyList listOfCurrencies = new CurrencyList();
     public CurrencyConverter() throws Exception {
 
         int originIndex = originCurrencySelection();
@@ -30,7 +31,7 @@ public class CurrencyConverter {
         new ViewContinueMessage();
     }
 
-    private CurrencyList listOfCurrencies = new CurrencyList();
+
 
     private CurrencyList getListOfCurrencies() {
         return listOfCurrencies;

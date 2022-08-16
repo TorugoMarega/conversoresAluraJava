@@ -5,25 +5,25 @@ import java.math.BigDecimal;
 
 abstract class Measure {
 
-    private int rowid;
+    private int id;
     private String name;
     private String symbol;
     private BigDecimal value;
 
     public Measure(){}
-    public Measure(int rowid, String name, String symbol, BigDecimal value) {
-        this.rowid = rowid;
+    public Measure(int id, String name, String symbol, BigDecimal value) {
+        this.id = id;
         this.name = name;
         this.symbol = symbol;
         this.value = value;
     }
 
-    public int getRowid() {
-        return rowid;
+    public int getId() {
+        return id;
     }
 
-    public void setRowid(int rowid) {
-        this.rowid = rowid;
+    public void setid(int rowid) {
+        this.id = rowid;
     }
 
     public String getName() {

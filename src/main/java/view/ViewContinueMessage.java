@@ -14,7 +14,7 @@ public class ViewContinueMessage {
             Menu menu = new Menu();
             menu.start();
         } else {
-            new FinishMessage();
+            new ViewFinishMessage();
         }
     }
 }
